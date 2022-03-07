@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="wrapper">
         <header>
             <a href="https://skillform.io"><img src="https://assets.codepen.io/2621168/logo_1.svg" class="logo"
                     alt="SkillForm Logo"></a>
         </header>
-    
         <main>
             <div class="col2 hero">
                 <h1>A Teaching Platform with Flexibility, Finally.</h1>
@@ -72,5 +75,24 @@
             </div>
         </div>
     </footer>
+
+    <!-- gsap cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- allows us to animate css pseudo element such as :before -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/CSSRulePlugin.min.js" integrity="sha512-Aa3UvVB5yhH/dNXMt8nGZDD15Xmntq1ODcavfgT8omSLaomrJKYybWczzc6UJYDUAdqR1hmDJ47V4Ux50PPIuw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- inline javascript -->
+    <script>
+        // changing default timeline behavior and assigning to variable
+        let tl = gsap.timeline({defaults: {ease: 'power4.inOut', duration: 2}})
+        // attaching css plugin to the class
+        let flagPoles = CSSRulePlugin.getRule('.card:before')
+
+        // now applying the timeline below, from or to
+        // display: none 'to' display: flex or 'from' display:flex to display: none
+        // to('element', {'parameters': 'css clippy'})
+        tl.to('h1', { 'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)', opacity: 1, y: 0, duration: 2.2})
+    </script>
 </body>
 </html>
